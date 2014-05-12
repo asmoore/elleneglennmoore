@@ -23,3 +23,8 @@ urlpatterns = patterns('',
     url(r'.*', RedirectView.as_view(url='')),
 
 )
+
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^src/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
