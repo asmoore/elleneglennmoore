@@ -1,0 +1,347 @@
+@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  -webkit-font-smoothing: antialiased;
+  font-family: minion-pro;
+  font-size: 110%;
+  text-align: justify;
+}
+
+.text-center {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+  -webkit-font-smoothing: antialiased;
+  font-family: minion-pro;
+  font-size: 110%;
+  text-align: center;
+}
+
+.row {
+  margin-left:0px;
+  margin-right:0px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 60px;
+  margin-top:50px;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer {
+  background-color:#F9AB82;
+}
+
+#footer a {
+  color:#efefef;
+}
+
+.text-muted {
+  color: #efefef;
+}
+
+@font-face
+{
+  font-family: 'Frutiger';
+  src: url('../fonts/Frutiger LT 57 Condensed.ttf');
+  src: url('../fonts/Frutiger LT 57 Condensed.ttf') format('embedded-opentype'), url('../fonts/Frutiger LT 57 Condensed.ttf') format('tff'), url('../fonts/Frutiger LT 57 Condensed.ttf') format('truetype');
+
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Frutiger';
+  vertical-align:middle;
+}
+
+
+
+header {
+  background: #FFF8AC;
+  height:250px;
+  color:#000000;
+}
+
+header h1,header h2,header h3 a,header a,header a:hover {
+  color:#101010;
+  text-decoration:none;
+}
+h1 {
+  font-size:50px;
+  text-align: center;
+}
+
+h2 {
+  font-size:50px;
+  text-align: center;
+}
+
+h3 {
+  font-size:35px;
+  text-align: center;
+}
+
+header .dropdown-menu {
+  top:74px;
+  background: #ffcc33;
+  border-width:0;
+}
+
+#nav {
+  width: 100%;
+  position:static;
+  top:-32px;
+}
+
+#nav.affix {
+   position: fixed;
+   top: 0;
+   z-index:10;
+   -webkit-transition: all .6s ease-in-out;
+}
+
+#footer > .container {
+  
+}
+
+@media (min-width: 767px) {
+  .navbar-nav.nav-justified > li{
+      float:none;
+  }
+}
+.navbar-nav {
+  margin: 1px 1px; 
+}  
+  
+/* customize nav style */
+.navbar-custom {
+  font-family: 'Frutiger';
+  background-color: #A39E6B;
+  font-weight:700;
+  text-transform:lowercase;
+  border-width:0;
+}
+.navbar-custom  .navbar-nav>li>a {
+  color: #ddd;
+}
+.navbar-custom  .navbar-nav li>a:hover, .navbar-nav li .open, .navbar-custom .navbar-nav .active a  {
+  background-color: #000;
+}
+.navbar-custom .dropdown-menu{
+  right:0;
+}
+.navbar-custom .navbar-nav>.dropdown>a .caret {
+  border-top-color: #999;
+  border-bottom-color: #999;
+}
+
+.navbar-collapse.in { /*3.0.2 bug workaround*/
+    overflow-y: visible;
+}
+
+.navbar-toggle {
+  outline:0;
+}
+
+.divider {
+  height:100px;
+}
+
+.panel {
+  border-width:0;
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 95px;
+  }
+}
+
+#map-canvas {
+    width: 100%; 
+    height: 300px;
+  margin: 0;
+  padding: 15px;
+}
+
+.scroll-top {
+   position:fixed;
+   bottom:0;
+   right:6%;
+   z-index:100;
+   background: #483F53;
+   font-size:24px;
+   border-top-left-radius:3px;
+   border-top-right-radius:3px;
+}
+.scroll-top a:link,.scroll-top a:visited {
+  color:#222;
+} 
+ 
+
+section {
+  color: #ffffff;
+  min-height: 300px;
+  height: auto !important;
+  height: 100%;
+  padding-top:100px;
+}
+
+.bg-1 {
+  background: url('http://www.bootply.com/assets/example/bg_4.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-2 {
+  background: url('../img/texture2.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-3 {
+    background: url('../img/texture1.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-4 {
+  padding-top:30px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
+
+/* Social sprites */
+.social {
+  background: url('../img/social-sprite2.png'); 
+  width:42px;
+  height:42px;
+  float:left;
+  margin-right: 10px;:6px;
+}
+
+.social[id="facebook"] {
+  background-position: 0px -42px;
+}
+.social[id="flickr"] {
+  background-position: -42px -42px;
+}
+.social[id="dontknow"] {
+  background-position: -84px -42px;
+}
+.social[id="googleplus"] {
+  background-position: -126px -42px;
+}
+.social[id="linkedin"] {
+  background-position: -168px -42px;
+}
+.social[id="pinterest"] {
+  background-position: -210px -42px;
+}
+.social[id="dontknow2"] {
+  background-position: -252px -42px;
+}
+.social[id="skype"] {
+  background-position: -294px -42px;
+}
+.social[id="twitter"] {
+  background-position: -336px -42px;
+}
+
+/* Contact */
+
+input {
+  width:500px;
+  float:right;
+  margin-right: 20px;
+}
+
+textarea {
+  width:500px;
+  float:right;
+  margin-right: 20px;
+}
+
+input[type="submit"] {
+  width:500px;
+  float:right;
+  margin-right: 20px;
+  width: 500px;
+}
+
+p[id="contact"] {
+  padding-left: 30px;
+  font-family: minion-pro;
+  font-size: 110%;
+}
+
+.jumbotron {
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+}
+
+/* Media */
+
+iframe {
+  display: block;
+  margin: 0 auto;
+  border: 0;
+}
+
+.player .video-wrapper .video {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border: 0;
+}
+
+ul[id="slidr-ul"] {
+  text-align: center;
+  width: 100%;
+  background: black;
+}
+
+li {
+  text-align: center;
+  width: 100%; 
+  background: black;
+}
+
+.jumbotron[id="media"] {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: black;
+}
