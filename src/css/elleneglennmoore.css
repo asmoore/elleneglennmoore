@@ -341,7 +341,15 @@ li {
 
 .jumbotron[id="media"] {
   width: 100%;
+  height: 500px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 0px;
+  margin-top: 0px;
   background: black;
+  padding: 0px;
+}
+
+img {
+  height: 500px;
 }
