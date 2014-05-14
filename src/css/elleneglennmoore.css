@@ -30,9 +30,9 @@ body {
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+  margin: 0 auto 0;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 0;
 }
 
 /* Set the fixed height of the footer here */
@@ -194,22 +194,35 @@ header .dropdown-menu {
    bottom:0;
    right:6%;
    z-index:100;
-   background: #483F53;
+   background: #A39E6B;
    font-size:24px;
    border-top-left-radius:3px;
    border-top-right-radius:3px;
 }
 .scroll-top a:link,.scroll-top a:visited {
-  color:#222;
+  color: white;
 } 
- 
+
+.nav > li > a {
+  text-decoration: none;
+  background-color: #A39E6B;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #FFF8AC;  
+}
+
+.scroll-top a:hover {
+  color: #FFF8AC;
+} 
 
 section {
   color: #ffffff;
-  min-height: 300px;
+  min-height: 200px;
   height: auto !important;
   height: 100%;
-  padding-top:100px;
+  padding-top:5S0px;
 }
 
 .bg-1 {
@@ -335,15 +348,15 @@ ul[id="slidr-ul"] {
 
 li {
   text-align: center;
-  width: 100%; 
+  width: 90%; 
   background: black;
 }
 
 .jumbotron[id="media"] {
   width: 100%;
   height: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-bottom: 0px;
   margin-top: 0px;
   background: black;

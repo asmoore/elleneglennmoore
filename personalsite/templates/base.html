@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- <link rel="shortcut icon" href="/static/img/favicon.png"> -->
+    {% load staticfiles %}
+    <link rel="shortcut icon" href="{% static "img/favicon.png" %}">
 
     <title>Ellene Glenn Moore</title>
 
@@ -27,9 +29,6 @@
           </div>
           </div>
       </header>  
-
-<link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
-
 <!-- NAVBAR -->
       <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
           <div class="container">
@@ -51,9 +50,7 @@
           </div><!--/.container -->
       </div><!--/.navbar -->
         
-      <!-- Begin page content -->
-      <div class="divider" id="about"></div>
-      
+
 <!-- ABOUT -->  
       <div class="container">
         <div class="col-sm-10 col-sm-offset-1">
@@ -65,7 +62,6 @@
             poet
           </p>
           <br>
-          {% load staticfiles %}
           <center><img src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></center>
           <br>
           {{ biography_text }}
