@@ -157,12 +157,6 @@
     <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script type='text/javascript' src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
     <script type='text/javascript' src="/static/js/elleneglennmoore.js"></script>
-    <!-- BigVideo Dependencies -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
-    <script src="static/bower_components/jquery-ui/ui/jquery-ui.js"></script>
-    <script src="static/bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
-    <script src="//vjs.zencdn.net/4.3/video.js"></script>
 
     <!-- Slidr -->
     <script type="text/javascript" src="/static/slidr/slidr.min.js"></script>
@@ -181,17 +175,6 @@
       touch: true,
       transition: 'linear'
       }).start();
-    </script>
-
-    <!-- BigVideo -->
-    <script src="static/bower_components/BigVideo/lib/bigvideo.js"></script>
-    <script>
-      $(function() {
-      var BV = new $.BigVideo({controls:true,useFlashForFirefox:false, container:$('.video-wrapper')});
-      BV.init();
-      //BV.show('http://vimeo.com/93903856',{ambient:true});
-      BV.show('http://vjs.zencdn.net/v/oceans.mp4',{ambient:true});
-      });
     </script>
 
     </body>
