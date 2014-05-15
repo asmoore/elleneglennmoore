@@ -8,9 +8,8 @@ from django.core.mail import EmailMessage
 
 def home(request):
     bio = biography()
-    poem = poems()
-    media_item = media()
-    event_list = events()
+    medias = media()
+    events = event()
 
     errors = []
     if request.method == 'POST':
@@ -31,10 +30,11 @@ def home(request):
 
     return render_to_response('base.html', 
                             {"biography_text":bio['biography_text'],
-                             "events":event_list['events'],
-                             "media_item":media_item,
+                             "events":events['events'],
+                             "medias":medias['media'],
                              "errors":errors},
                              RequestContext(request))
+
 
 def biography():
     bio = Biography.objects.all()[0]
@@ -44,56 +44,16 @@ def biography():
         text = ""
     return {"biography_text":text}
 
-def poems():
-    poem_title = "Ode to Ipsum"
-    poem_text = """
-Lorem ipsum dolor sit amet,
-consectetur adipisicing elit, 
-sed do eiusmod tempor incididunt 
-ut 
-labore et dolore magna aliqua. 
-Ut 
-enim ad minim veniam, 
-quis nostrud exercitation 
-ullamco laboris nisi ut aliquip ex ea commodo consequat."""
-    return {"poem_title":poem_title,"poem_text":poem_text}
 
-def events():
+def event():
     events = Event.objects.all()
     return {"events":events}
 
+
 def media():
-    media = Media.objects.all()[:3]
-    media_html = ""
-    i = 1
-    for media_item in media:
-        if i == 1:
-            li_number = "one"
-        elif i == 2:
-            li_number = "two"
-        elif i ==3:
-            li_number = "three"
-        elif i ==4:
-            li_number = "four"
-        elif i ==5:
-            li_number = "five"
-        if media_item.media_type == "VI":
-            media_html = media_html + """<li data-slidr="%s">
-              <div class="jumbotron" id="media">
-                %s
-              </div>
-            </li>""" % (li_number,media_item.media_text)
-        elif media_item.media_type == "TX":
-            media_html = media_html + """<li data-slidr="%s">
-                %s
-            </li>""" % (li_number,media_item.media_text)
-        else: #Image
-            media_html = media_html + """<li data-slidr="%s">
-            <center><img src="/static/img/%s" alt="My image"></center>
-          </li>""" % (li_number,media_item.media_text)
-        i = i + 1
-    
-    return {"media":media_html}
+    medias = Media.objects.all()[:3]
+    return {"media":medias}
+
 
 def contact(request):
     if request.method == 'POST': # If the form has been submitted...
@@ -109,3 +69,5 @@ def contact(request):
     return render(request, 'contact.html', {
         'form': form,
     })
+
+    

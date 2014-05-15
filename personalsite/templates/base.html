@@ -82,7 +82,7 @@
               <p>{{ event.event_description|linebreaks }}</p>
               <br>
             {% endfor %}
-            
+      
           </div><!--/col-->
       </div><!--/container-->
 
@@ -95,7 +95,25 @@
         </div>
       </section>
         <ul id="slidr-ul" style="width:100%; height: 600px; background-color:FFDEAC;">
-          {{ media_item.media|safe|linebreaks }}
+          {% for media in medias %}
+            {% if media.media_type == "VI" %}
+              <li data-slidr="one">
+                <div class="jumbotron" id="media">
+                  {{ media.media_text|safe }}
+                </div>
+              </li>
+            {% endif %}
+            {% if media.media_type == "TX" %}
+              <li data-slidr="two">
+                  {{ media.media_text }}
+              </li>
+            {% endif %}
+            {% if media.media_type == "IM" %}
+              <li data-slidr="three">
+                <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
+              </li>
+            {% endif %}
+          {% endfor %}
         </ul>
 <!-- CONTACT -->
     <div class="divider" id="contact"></div>
