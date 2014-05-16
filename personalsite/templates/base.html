@@ -97,19 +97,19 @@
         <ul id="slidr-ul" style="width:100%; height: 600px; background-color:FFDEAC;">
           {% for media in medias %}
             {% if media.media_type == "VI" %}
-              <li data-slidr="one">
+              <li data-slidr="{{ forloop.counter }}">
                 <div class="jumbotron" id="media">
                   {{ media.media_text|safe }}
                 </div>
               </li>
             {% endif %}
             {% if media.media_type == "TX" %}
-              <li data-slidr="two">
-                  {{ media.media_text }}
+              <li data-slidr="{{ forloop.counter }}">
+                  {{ media.media_text|linebreaks }}
               </li>
             {% endif %}
             {% if media.media_type == "IM" %}
-              <li data-slidr="three">
+              <li data-slidr="{{ forloop.counter }}">
                 <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
               </li>
             {% endif %}
