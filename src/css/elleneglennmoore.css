@@ -6,7 +6,7 @@ body {
   /* The html and body elements cannot have any padding or margin. */
   -webkit-font-smoothing: antialiased;
   font-family: minion-pro;
-  font-size: 110%;
+  font-size: 100%;
   text-align: justify;
 }
 
@@ -26,9 +26,7 @@ body {
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
+  height: 90%;
   /* Negative indent footer by its height */
   margin: 0 auto 0;
   /* Pad bottom by footer height */
@@ -48,7 +46,9 @@ body {
 -------------------------------------------------- */
 
 #wrap > .container {
-  padding: 60px 15px 0;
+  padding: 0px 0px 0;
+  width: 100%;
+  height: 100%;
 }
 .container .credit {
   margin: 20px 0;
@@ -79,12 +79,13 @@ h1,h2,h3,h4 {
   vertical-align:middle;
 }
 
-
-
 header {
-  background: #FFF8AC;
-  height:250px;
-  color:#000000;
+  height:100%;
+  background: url('../img/banner2.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
 }
 
 header h1,header h2,header h3 a,header a,header a:hover {
@@ -94,25 +95,29 @@ header h1,header h2,header h3 a,header a,header a:hover {
 h1 {
   font-size:50px;
   text-align: center;
+  color: white;
 }
 
 h2 {
-  font-size:50px;
+  font-size:30px;
   text-align: center;
 }
 
 h3 {
-  font-size:35px;
+  font-size:20px;
   text-align: center;
 }
 
+/*
 header .dropdown-menu {
   top:74px;
   background: #ffcc33;
   border-width:0;
 }
+*/
 
 #nav {
+  height:7%;
   width: 100%;
   position:static;
   top:-32px;
@@ -129,6 +134,7 @@ header .dropdown-menu {
   
 }
 
+/* NAVBAR */
 @media (min-width: 767px) {
   .navbar-nav.nav-justified > li{
       float:none;
@@ -137,8 +143,7 @@ header .dropdown-menu {
 .navbar-nav {
   margin: 1px 1px; 
 }  
-  
-/* customize nav style */
+
 .navbar-custom {
   font-family: 'Frutiger';
   background-color: #A39E6B;
@@ -176,11 +181,13 @@ header .dropdown-menu {
   border-width:0;
 }
 
+/*
 @media (max-width: 768px) {
   header {
     height: 95px;
   }
 }
+*/
 
 #map-canvas {
     width: 100%; 
@@ -226,7 +233,7 @@ section {
 }
 
 .bg-1 {
-  background: url('http://www.bootply.com/assets/example/bg_4.jpg') no-repeat center center fixed; 
+  background: url('../img/banner4.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -234,7 +241,7 @@ section {
 }
 
 .bg-2 {
-  background: url('../img/texture2.jpg') no-repeat center center fixed; 
+  background: url('../img/banner1.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -242,7 +249,7 @@ section {
 }
 
 .bg-3 {
-    background: url('../img/texture1.jpg') no-repeat center center fixed; 
+    background: url('../img/banner5.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -250,9 +257,12 @@ section {
 }
 
 .bg-4 {
-  padding-top:30px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
-}
+    background: url('../img/banner3.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 /* Social sprites */
 .social {
@@ -366,3 +376,40 @@ li {
 img {
   height: 500px;
 }
+
+/* Slidr */
+aside[id="slidr-ul-control"] .slidr-control.right {
+  width: 45px !important;
+  height: 51px !important;
+  top: 40% !important;
+  background: url('../img/arrow-right.png') no-repeat black;
+  opacity: .7;
+}
+
+aside[id="slidr-ul-control"] .slidr-control.right:hover {
+  opacity: 1;
+}
+
+/* Slidr */
+aside[id="slidr-ul-control"] .slidr-control.left {
+  width: 45px !important;
+  height: 51px !important;
+  top: 40% !important;
+  background: url('../img/arrow-left.png') no-repeat black;
+  opacity: 1;
+}
+
+aside[id="slidr-ul-control"] .slidr-control.left:hover {
+  opacity: 1;
+}
+
+aside[id="slidr-ul-control"] .slidr-control:after {
+  border-color: transparent !important;
+}
+
+.container {
+width: 100%;
+padding-left: 0px;
+padding-right: 0px;
+}
+

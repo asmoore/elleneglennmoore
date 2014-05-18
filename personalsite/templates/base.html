@@ -6,29 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="shortcut icon" href="/static/img/favicon.png"> -->
     {% load staticfiles %}
     <link rel="shortcut icon" href="{% static "img/favicon.png" %}">
-
+  </head>
     <title>Ellene Glenn Moore</title>
-
 <!-- CSS -->
     <link href="/static/css/bootstrap.css" rel="stylesheet">
     <link href="/static/css/elleneglennmoore.css" rel="stylesheet">
-    <link href="/static/bower_components/BigVideo.js/css/bigvideo.css" rel="stylesheet">
-    <body  >
+  
+  <body> 
+<!-- HEADER --> 
+    <div id="wrap">
+      <header>
+        <div class="col-sm-6">
+          <h1 style="padding:20px;background-color:rgba(5,5,5,.8);color:white;">EGM</h1>
+        </div>
+      </header>
+    </div>  
 
-<!-- HEADER -->  
-      <div id="wrap">
-      <header class="masthead">
-          <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <h1><a href="#" title="Ellene Glenn Moore">Ellene Glenn Moore</a>
-            </div>
-          </div>
-          </div>
-      </header>  
 <!-- NAVBAR -->
       <div class="navbar navbar-custom navbar-inverse navbar-static-top" id="nav">
           <div class="container">
@@ -50,78 +45,87 @@
           </div><!--/.container -->
       </div><!--/.navbar -->
         
-
 <!-- ABOUT -->  
       <div class="container">
-        <div class="col-sm-10 col-sm-offset-1">
-          <div class="page-header text-center">
-            <h1>About Ellene Glenn Moore</h1>
-          </div>
-          
-          <p class="lead text-center">
-            poet
-          </p>
-          <br>
-          <center><img src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></center>
-          <br>
-          {{ biography_text }}
-
-          <br><br><br>
-
+      <div class="divider" id="about"></div>
+      <section class="bg-1" id="about">
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+          <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Ellene Glenn Moore</h2>
         </div>
+      </section>
+      <div class="col-sm-10 col-sm-offset-1">
+        <p class="lead text-center">
+          poet
+        </p>
+        <center><img src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></center>
+        {{ biography_text }}
+      </div>
       </div>
 
 <!-- EVENTS -->
-      <div class="container" id="events">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
+      <div class="container">
+      <div class="divider" id="events"></div>
+      <section class="bg-2" id="events">
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+          <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Events</h2>
+        </div>
+      </section>
+      <div class="col-sm-8 col-sm-offset-2 text-center">
 
-            <h1>Events</h1>
+        <h1>Events</h1>
 
-            {% for event in events %}
-              <h3>{{ event.event_date }}</h3>
-              <p>{{ event.event_description|linebreaks }}</p>
-              <br>
-            {% endfor %}
-      
-          </div><!--/col-->
-      </div><!--/container-->
+        {% for event in events %}
+          <h3>{{ event.event_date }}</h3>
+          <p>{{ event.event_description|linebreaks }}</p>
+          <br>
+        {% endfor %}
+  
+      </div><!--/col-->
+      </div>
 
 <!-- MEDIA --> 
-
+      <div class="container">
       <div class="divider" id="media"></div>
-      <section class="bg-2" id="media">
+      <section class="bg-3" id="media">
         <div class="col-sm-6 col-sm-offset-3 text-center">
           <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Media</h2>
         </div>
       </section>
-        <ul id="slidr-ul" style="width:100%; height: 600px; background-color:FFDEAC;">
-          {% for media in medias %}
-            {% if media.media_type == "VI" %}
-              <li data-slidr="{{ forloop.counter }}">
-                <div class="jumbotron" id="media">
-                  {{ media.media_text|safe }}
-                </div>
-              </li>
-            {% endif %}
-            {% if media.media_type == "TX" %}
-              <li data-slidr="{{ forloop.counter }}">
-                  {{ media.media_text|linebreaks }}
-              </li>
-            {% endif %}
-            {% if media.media_type == "IM" %}
-              <li data-slidr="{{ forloop.counter }}">
-                <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+      <ul id="slidr-ul" style="width:100%; height: 600px; background-color:FFDEAC;">
+
+        {% for media in medias %}
+          {% if media.media_type == "VI" %}
+            <li data-slidr="{{ forloop.counter }}">
+              <div class="jumbotron" id="media">
+                {{ media.media_text|safe }}
+              </div>
+            </li>
+          {% endif %}
+          {% if media.media_type == "TX" %}
+            <li data-slidr="{{ forloop.counter }}">
+                {{ media.media_text|linebreaks }}
+            </li>
+          {% endif %}
+          {% if media.media_type == "IM" %}
+            <li data-slidr="{{ forloop.counter }}">
+              <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      </div>
+
 <!-- CONTACT -->
+    <div class="container">
     <div class="divider" id="contact"></div>
+      <section class="bg-4" id="contact">
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+          <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Contact</h2>
+        </div>
+      </section>
       <div class="jumbotron">
         <div class="row">
-          <h1>Contact Me</h1>
-          <hr>
-          
+          <hr>         
           {% if errors %}
               <ul>
                   {% for error in errors %}
@@ -138,10 +142,12 @@
             <input type="submit" value="Submit">
           </form>    
           </div><!--/row-->
-        </div><!--/jumbotron
-      </div><!--/wrap-->
+        </div><!--/jumbotron-->
+      </div><!--/container-->
+
 
 <!-- FOOTER -->
+      
       <div id="footer">
         <div class="container">
           <p class="text-muted">Ellene Glenn Moore 2014. Site design by <a href="mailto:asmoor@gmail.com">Andrew Moore</a>.</p>
@@ -151,6 +157,7 @@
       <ul class="nav pull-right scroll-top">
         <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
       </ul>
+</body>
 
 <!-- SCRIPTS -->
     <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -176,6 +183,28 @@
       transition: 'linear'
       }).start();
     </script>
-
-    </body>
+    <!--
+    //use append to add click functionality (doesn't work)
+    //
+    //use the following to move to a specific slide
+    //slidr.slide([data-slidr-id])
+    //
+    //
+    -->
+    <script>
+      $('<span class="click-me">click me</span>').appendTo('.slidr-control right');
+    </script>
+    <!--
+    //
+    //use the following to append a click function onto something... kind of works
+    //  $('.slidr-control left')
+    //  .find('li:gt(2)')
+    //  .hide()
+    //  .end()
+    //  .append(
+    //      $('<li>Show More!</li>').click( function(){
+    //      $(this).siblings().toggle(500);
+    //      })
+    //  );
+    -->
 </html>
