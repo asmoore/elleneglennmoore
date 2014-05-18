@@ -53,13 +53,12 @@
           <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Ellene Glenn Moore</h2>
         </div>
       </section>
-      <div class="col-sm-10 col-sm-offset-1">
-        <p class="lead text-center">
-          poet
-        </p>
-        <center><img src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></center>
-        {{ biography_text }}
-      </div>
+      <table BORDER="0" CELLPADDING="3" CELLSPACING="3">
+      <tr>
+      <td> <img id="bio" src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></td>
+      <td>{{ biography_text }}</td>
+      </tr>
+      </table>
       </div>
 
 <!-- EVENTS -->
@@ -71,9 +70,6 @@
         </div>
       </section>
       <div class="col-sm-8 col-sm-offset-2 text-center">
-
-        <h1>Events</h1>
-
         {% for event in events %}
           <h3>{{ event.event_date }}</h3>
           <p>{{ event.event_description|linebreaks }}</p>

@@ -322,10 +322,16 @@ input[type="submit"] {
   width: 500px;
 }
 
+p {
+  font-size: 75%;
+  display: inline-block;
+}
+
 p[id="contact"] {
   padding-left: 30px;
   font-family: minion-pro;
-  font-size: 110%;
+  font-size: 90%;
+  display: block;
 }
 
 .jumbotron {
@@ -373,8 +379,24 @@ li {
   padding: 0px;
 }
 
+/* About */
+
 img {
-  height: 500px;
+  height: auto;
+  width: 400px;
+  display: inline-block;
+}
+
+table {
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  min-height: 80%;
+}
+
+td {
+  padding-left: 50px;
+  padding-right: 50px; 
 }
 
 /* Slidr */
