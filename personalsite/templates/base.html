@@ -141,6 +141,50 @@
         </div><!--/jumbotron-->
       </div><!--/container-->
 
+    <div class="jumbotron" id="media">
+      <div>
+        <ul>
+          <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
+          <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
+        </ul>
+      </div>
+      <center><div class="slider">
+        <ul>
+            {% for media in medias %}
+              {% if media.media_type == "VI" %}
+                <li>
+                  {{ media.media_text|safe }}
+                </li>
+              {% endif %}
+              {% if media.media_type == "TX" %}
+                <li>
+                    {{ media.media_text|linebreaks }}
+                </li>
+              {% endif %}
+              {% if media.media_type == "IM" %}
+                <li>
+                    <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+      </div></center>
+    </div>
+
+  <div>
+    <ul>
+      <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
+      <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
+    </ul>
+    <ul>
+      <li><a href="javascript:sliders[0].goTo(-1)">.goTo(-1)</a></li>
+      <li><a href="javascript:sliders[0].goTo(0)">.goTo(0)</a></li>
+      <li><a href="javascript:sliders[0].goTo(1)">.goTo(1)</a></li>
+      <li><a href="javascript:sliders[0].goTo(2)">.goTo(2)</a></li>
+      <li><a href="javascript:sliders[0].goTo(3)">.goTo(3)</a></li>
+      <li><a href="javascript:sliders[0].goTo(42)">.goTo(42)</a></li>
+    </ul>
+  </div>
 
 <!-- FOOTER -->
       
@@ -157,50 +201,16 @@
 
 <!-- SCRIPTS -->
     <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <script type='text/javascript' src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
     <script type='text/javascript' src="/static/js/elleneglennmoore.js"></script>
+    <script type='text/javascript' src="/static/js/slider.js"></script>    
+    <script>
+      var sliders = []
+      $('.slider').each(function() {
+        sliders.push(new Slider(this))
+      })
+    </script>
 
-    <!-- Slidr -->
-    <script type="text/javascript" src="/static/slidr/slidr.min.js"></script>
-    <script>
-      slidr.create('slidr-ul', {
-      after: function(e) { console.log('in: ' + e.in.slidr); },
-      before: function(e) { console.log('out: ' + e.out.slidr); },
-      breadcrumbs: true,
-      controls: 'border',
-      direction: 'horizontal',
-      fade: false,
-      keyboard: true,
-      overflow: true,
-      theme: '#222',
-      timing: { 'linear': '0.5s ease-in' },
-      touch: true,
-      transition: 'linear'
-      }).start();
-    </script>
-    <!--
-    //use append to add click functionality (doesn't work)
-    //
-    //use the following to move to a specific slide
-    //slidr.slide([data-slidr-id])
-    //
-    //
-    -->
-    <script>
-      $('<span class="click-me">click me</span>').appendTo('.slidr-control right');
-    </script>
-    <!--
-    //
-    //use the following to append a click function onto something... kind of works
-    //  $('.slidr-control left')
-    //  .find('li:gt(2)')
-    //  .hide()
-    //  .end()
-    //  .append(
-    //      $('<li>Show More!</li>').click( function(){
-    //      $(this).siblings().toggle(500);
-    //      })
-    //  );
-    -->
 </html>
