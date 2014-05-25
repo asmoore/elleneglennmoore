@@ -54,10 +54,10 @@
         </div>
       </section>
       <table BORDER="0" CELLPADDING="3" CELLSPACING="3">
-      <tr>
-      <td> <img id="bio" src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></td>
-      <td>{{ biography_text }}</td>
-      </tr>
+        <tr>
+          <td id="bio-image"> <img id="bio" src="{% static "img/ElleneGlennMoore.jpg" %}" alt="My image"></td>
+          <td id="bio-text">{{ biography_text }}</td>
+        </tr>
       </table>
       </div>
 
@@ -98,27 +98,40 @@
           <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
         </ul>
       </div>
-      <center><div class="slider" style="float: center;">
-        <ul>
-          {% for media in medias %}
-            {% if media.media_type == "VI" %}
-              <li id="media-video">
-                {{ media.media_text|safe }}
-              </li>
-            {% endif %}
-            {% if media.media_type == "TX" %}
-              <li id="media-text">
-                  {{ media.media_text|linebreaks }}
-              </li>
-            {% endif %}
-            {% if media.media_type == "IM" %}
-              <li id="media-image">
-                  <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div></center>
+      <center>
+        <div class="slider" style="float: center;">
+          <ul>
+            {% for media in medias %}
+              {% if media.media_type == "VI" %}
+                <li id="media-video">
+                  <p id="media-video-description">
+                    {{ media.media_description }}
+                  </p>
+                  {{ media.media_text|safe }}
+                </li>
+              {% endif %}
+              {% if media.media_type == "TX" %}
+                <li id="media-text">
+                  <div id="media-text-description">
+                    {{ media.media_description }}
+                  </div>
+                  <div id="media-text-content">
+                    {{ media.media_text|linebreaks }}
+                  </div>  
+                </li>
+              {% endif %}
+              {% if media.media_type == "IM" %}
+                <li id="media-image">
+                  <p id="media-image-description">
+                    {{ media.media_description }}
+                  </p>
+                  <img id="media-image-content" src="/static/img/{{ media.media_text }}" alt="My image">
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </center>
       </div>
       </div>
 
@@ -151,21 +164,6 @@
           </div><!--/row-->
         </div><!--/jumbotron-->
       </div><!--/container-->
-
-  <div>
-    <ul>
-      <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
-      <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
-    </ul>
-    <ul>
-      <li><a href="javascript:sliders[0].goTo(-1)">.goTo(-1)</a></li>
-      <li><a href="javascript:sliders[0].goTo(0)">.goTo(0)</a></li>
-      <li><a href="javascript:sliders[0].goTo(1)">.goTo(1)</a></li>
-      <li><a href="javascript:sliders[0].goTo(2)">.goTo(2)</a></li>
-      <li><a href="javascript:sliders[0].goTo(3)">.goTo(3)</a></li>
-      <li><a href="javascript:sliders[0].goTo(42)">.goTo(42)</a></li>
-    </ul>
-  </div>
 
 <!-- FOOTER -->
       
