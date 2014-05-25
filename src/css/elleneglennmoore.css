@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
+@import url(http://fonts.googleapis.com/css?family=Arvo);
 
 html,
 body {
@@ -323,6 +324,7 @@ input[type="submit"] {
 }
 
 p {
+  font-family: minion-pro;
   font-size: 75%;
   display: inline-block;
 }
@@ -469,8 +471,10 @@ p[id="media-video-description"] {
   display: block; 
   float: left;
   margin-top: 20px;
-  font-size: 75%;
+  font-family: Arvo;
+  font-size: 100%;
   color: #e4ebe5;
+
 }
 
 li[id="media-text"] {
@@ -479,7 +483,8 @@ li[id="media-text"] {
   width: 100%;
   float: left;
   max-height: 500px;
-  font-size: 75%;
+  font-family: Arvo;
+  font-size: 100%;
 }
 
 div[id="media-text-description"] {
@@ -489,7 +494,8 @@ div[id="media-text-description"] {
   float: left;
   margin-top: 20px;
   color: #e4ebe5;
-  font-size: 75%;
+  font-family: Arvo;
+  font-size: 100%;
 }
 
 div[id="media-text-content"] {
@@ -499,7 +505,8 @@ div[id="media-text-content"] {
   float: left;
   margin-top: 20px;
   color: #e4ebe5;
-  font-size: 75%;
+  font-family: Arvo;
+  font-size: 100%;
 }
 
 li[id="media-image"] {
@@ -513,7 +520,8 @@ p[id="media-image-description"] {
   float: left;
   margin-top: 20px;
   color: #e4ebe5;
-  font-size: 75%;
+  font-family: Arvo;
+  font-size: 100%;
 }
 
 img[id="media-image-content"] {
@@ -523,12 +531,15 @@ img[id="media-image-content"] {
   float: left;
   margin-top: 20px;
   max-height: 480px;
-  font-size: 75%;
 }
 
 /* small screen media */
 @media screen and (max-width: 1000px){
   
+  h1 {
+    margin-top: 0px;
+  } 
+
   .slider {
     width: 600px; 
   }
@@ -575,6 +586,10 @@ img[id="media-image-content"] {
 
 /* small screen */
 @media screen and (max-width: 730px){
+  h1 {
+    margin-top: 0px;
+  }
+
   td[id="bio-image"] {
     width: 100%;
     display: block;
@@ -627,4 +642,16 @@ img[id="media-image-content"] {
     color: transparent;
     width: 0px;
   }
+}
+
+/* small screen */
+@media screen and (max-width: 537px) {
+  .container[id="media-container"] {
+    display: none;
+  }
+
+  h1 {
+    margin-top: 0px;
+  }
+
 }
