@@ -518,7 +518,7 @@ p[id="media-image-description"] {
 
 img[id="media-image-content"] {
   height: 500px;
-  width: 500px;
+  max-width: 500px;
   display: block; 
   float: left;
   margin-top: 20px;
