@@ -87,28 +87,39 @@
           <h2 style="padding:20px;background-color:rgba(5,5,5,.8)">Media</h2>
         </div>
       </section>
-      <ul id="slidr-ul" style="width:100%; height: 600px; background-color:FFDEAC;">
-
-        {% for media in medias %}
-          {% if media.media_type == "VI" %}
-            <li data-slidr="{{ forloop.counter }}">
-              <div class="jumbotron" id="media">
+      <div class="jumbotron" id="media">
+      <div style="float: left; height: 100%">
+        <ul>
+          <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
+        </ul>
+      </div>
+      <div style="float: right; height: 100%">
+        <ul>
+          <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
+        </ul>
+      </div>
+      <center><div class="slider" style="float: center;">
+        <ul>
+          {% for media in medias %}
+            {% if media.media_type == "VI" %}
+              <li id="media-video">
                 {{ media.media_text|safe }}
-              </div>
-            </li>
-          {% endif %}
-          {% if media.media_type == "TX" %}
-            <li data-slidr="{{ forloop.counter }}">
-                {{ media.media_text|linebreaks }}
-            </li>
-          {% endif %}
-          {% if media.media_type == "IM" %}
-            <li data-slidr="{{ forloop.counter }}">
-              <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+              </li>
+            {% endif %}
+            {% if media.media_type == "TX" %}
+              <li id="media-text">
+                  {{ media.media_text|linebreaks }}
+              </li>
+            {% endif %}
+            {% if media.media_type == "IM" %}
+              <li id="media-image">
+                  <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div></center>
+      </div>
       </div>
 
 <!-- CONTACT -->
@@ -141,36 +152,6 @@
         </div><!--/jumbotron-->
       </div><!--/container-->
 
-    <div class="jumbotron" id="media">
-      <div>
-        <ul>
-          <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
-          <li><a href="javascript:sliders[0].goToNext()">.goToNext()</a></li>
-        </ul>
-      </div>
-      <center><div class="slider">
-        <ul>
-            {% for media in medias %}
-              {% if media.media_type == "VI" %}
-                <li>
-                  {{ media.media_text|safe }}
-                </li>
-              {% endif %}
-              {% if media.media_type == "TX" %}
-                <li>
-                    {{ media.media_text|linebreaks }}
-                </li>
-              {% endif %}
-              {% if media.media_type == "IM" %}
-                <li>
-                    <center><img src="/static/img/{{ media.media_text }}" alt="My image"></center>
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-      </div></center>
-    </div>
-
   <div>
     <ul>
       <li><a href="javascript:sliders[0].goToPrev()">.goToPrev()</a></li>
@@ -188,15 +169,15 @@
 
 <!-- FOOTER -->
       
-      <div id="footer">
-        <div class="container">
-          <p class="text-muted">Ellene Glenn Moore 2014. Site design by <a href="mailto:asmoor@gmail.com">Andrew Moore</a>.</p>
-        </div>
-      </div>
-
-      <ul class="nav pull-right scroll-top">
-        <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
-      </ul>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">Ellene Glenn Moore 2014. Site design by <a href="mailto:asmoor@gmail.com">Andrew Moore</a>.</p>
+    </div>
+  </div>
+  <ul class="nav pull-right scroll-top">
+    <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+  </ul>
+  
 </body>
 
 <!-- SCRIPTS -->
