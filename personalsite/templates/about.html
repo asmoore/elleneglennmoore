@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header><a href="/" style="color: black;">EGM.</a></header>
+{% endblock %}
+
+{% block bar %}
+<nav class="top-bar" data-topbar>
+  <section class="top-bar-section">
+    <ul class="center">
+      <li class="active"><a href="/about">ABOUT</a></li>
+      <li class="divider">|</li>
+      <li><a href="/work">WORK</a></li>
+      <li class="divider">|</li>
+      <li><a href="/events">EVENTS</a></li>
+      <li class="divider">|</li>
+      <li><a href="/blog">BLOG</a></li>
+      <li class="divider">|</li>
+      <li><a href="/contact">CONTACT</a></li>
+    </ul>
+  </section>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="large-4 columns large-offset-2 column bio-text">
+  {% for bio in biography %}
+    <p>{{ bio.text }}</p>
+  {% endfor %}
+
+  <br>
+
+  <a href="{% static "pdf/ElleneGlennMoore.pdf" %}" alt="Ellene's CV">
+  click here to download Ellene’s CV
+  </a>
+
+</div>
+
+<div class="large-4 columns end">
+  <img id="bio" src="{% static "img/aboutpic.jpg" %}" alt="Ellene's image">
+</div>
+{% endblock %}

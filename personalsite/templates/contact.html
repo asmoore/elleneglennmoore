@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header><a href="/" style="color: black;">EGM.</a></header>
+{% endblock %}
+
+{% block bar %}
+<nav class="top-bar" data-topbar>
+  <section class="top-bar-section">
+    <ul class="center">
+      <li><a href="/about">ABOUT</a></li>
+      <li class="divider">|</li>
+      <li><a href="/work">WORK</a></li>
+      <li class="divider">|</li>
+      <li><a href="/events">EVENTS</a></li>
+      <li class="divider">|</li>
+      <li><a href="/blog">BLOG</a></li>
+      <li class="divider">|</li>
+      <li class="active"><a href="/contact">CONTACT</a></li>
+    </ul>
+  </section>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="large-8 columns large-offset-2 column bio-text">  
+
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- <form action="/contact/" method="post"> -->
+    <form method="post">
+      {% csrf_token %}
+      <p id="contact">Subject: <input type="text" name="subject" value="{{ subject }}"></p>
+      <p id="contact">Your e-mail (optional): <input type="text" name="email" value="{{ email }}"></p>
+      <p id="contact">Message: <textarea name="message" rows="10" cols="50">{{ message }}</textarea></p>
+      <input type="submit" value="Submit">
+    </form>    
+
+  </div>
+</div>
+{% endblock %}

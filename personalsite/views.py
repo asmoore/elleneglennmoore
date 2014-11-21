@@ -1,16 +1,45 @@
+from datetime import datetime
+import pytz
+
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-from models import Biography, Event, Media
+from models import Biography, Event, Work
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.mail import EmailMessage
 
 
 def home(request):
-    bio = biography()
-    medias = media()
-    events = event()
+    test = 'test'
+    return render_to_response('home.html', 
+                            {"test":test},
+                             RequestContext(request))
+def about(request):
+    biography = Biography.objects.all()[:1]
+    return render_to_response('about.html', 
+                            {"biography": biography},
+                             RequestContext(request))
+def work(request):
+    works = Work.objects.all()
+    return render_to_response('work.html', 
+                            {"works":works},
+                             RequestContext(request))
+def events(request):
+    events = Event.objects.all()
+    upcoming_list = []
+    for event in events:
+        upcoming_list.append(datetime.now(pytz.utc) < event.event_date)
+    events_and_upcoming = zip(events, upcoming_list)
+    return render_to_response('events.html', 
+                            {"events_and_upcoming": events_and_upcoming},
+                             RequestContext(request))
+def blog(request):
+    test = 'test'
+    return render_to_response('blog.html', 
+                            {"test":test},
+                             RequestContext(request))
 
+def contact(request):
     errors = []
     if request.method == 'POST':
         if not request.POST.get('subject', ''):
@@ -28,46 +57,6 @@ def home(request):
             )
             email.send()
 
-    return render_to_response('base.html', 
-                            {"biography_text":bio['biography_text'],
-                             "events":events['events'],
-                             "medias":medias['media'],
-                             "errors":errors},
+    return render_to_response('contact.html', 
+                            {"errors":errors},
                              RequestContext(request))
-
-
-def biography():
-    bio = Biography.objects.all()[0]
-    if bio:
-        text = bio.text
-    else:
-        text = ""
-    return {"biography_text":text}
-
-
-def event():
-    events = Event.objects.all()
-    return {"events":events}
-
-
-def media():
-    medias = Media.objects.all()[:3]
-    return {"media":medias}
-
-
-def contact(request):
-    if request.method == 'POST': # If the form has been submitted...
-        # ContactForm was defined in the previous section
-        form = ContactForm(request.POST) # A form bound to the POST data
-        if form.is_valid(): # All validation rules pass
-            # Process the data in form.cleaned_data
-            # ...
-            return HttpResponseRedirect('/thanks/') # Redirect after POST
-    else:
-        form = ContactForm() # An unbound form
-
-    return render(request, 'contact.html', {
-        'form': form,
-    })
-
-    

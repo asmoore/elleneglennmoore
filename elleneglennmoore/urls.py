@@ -6,8 +6,10 @@ from django.contrib import admin
 admin.autodiscover()
 import settings
 
+
 # import your urls from each app here, as needed
 import personalsite.urls
+import blog.urls
 
 urlpatterns = patterns('',
 
@@ -19,8 +21,11 @@ urlpatterns = patterns('',
 
     url(r'^/personalsite/admin/', include(admin.site.urls)),
 
+    url(r'^/blog', include(blog.urls)),
+
     # catch all, redirect to personalsite home view
     url(r'.*', RedirectView.as_view(url='')),
+
 
 )
 

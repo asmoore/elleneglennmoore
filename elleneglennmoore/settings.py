@@ -1,6 +1,8 @@
 # Django settings for elleneglennmoore
 import os
 
+import south
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 USE_SOUTH = True
@@ -60,7 +62,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/media/'
+MEDIA_ROOT = os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'src')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -131,6 +133,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'personalsite',
+    'blog',
+    'south',
 )
 
 
@@ -151,7 +155,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'asmoor@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+EMAIL_HOST_PASSWORD = os.environ['PASS']
 EMAIL_PORT = 587
 
 # A sample logging configuration. The only tangible logging

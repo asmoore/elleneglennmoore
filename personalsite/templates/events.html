@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header><a href="/" style="color: black;">EGM.</a></header>
+{% endblock %}
+
+{% block bar %}
+<nav class="top-bar" data-topbar>
+  <section class="top-bar-section">
+    <ul class="center">
+      <li><a href="/about">ABOUT</a></li>
+      <li class="divider">|</li>
+      <li><a href="/work">WORK</a></li>
+      <li class="divider">|</li>
+      <li class="active"><a href="/events">EVENTS</a></li>
+      <li class="divider">|</li>
+      <li><a href="/blog">BLOG</a></li>
+      <li class="divider">|</li>
+      <li><a href="/contact">CONTACT</a></li>
+    </ul>
+  </section>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="large-8 columns large-offset-2 column bio-text">
+  <h3>Upcoming</h3>  
+  {% for event, up in events_and_upcoming %}
+    {% if up %}
+    <h4 id="date-header">—{{ event.event_date }}—</h4>
+    <h2 id="event-title">{{ event.event_title }}</h2>
+    <p>{{ event.event_description|linebreaks }}</p>
+    <br>
+    {% endif %}
+  {% endfor %}
+  
+  <h3>Past</h3>
+  {% for event, up in events_and_upcoming %}
+    {% if not up %}
+    <h4 id="date-header">—{{ event.event_date }}—</h4>
+    <h2 id="event-title">{{ event.event_title }}</h2>
+    <p>{{ event.event_description|linebreaks }}</p>
+    <br>
+    {% endif %}
+  {% endfor %}
+
+</div><!--/col-->
+
+{% endblock %}

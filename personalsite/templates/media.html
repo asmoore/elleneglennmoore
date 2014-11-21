@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<header><a href="/" style="color: black;">EGM.</a></header>
+{% endblock %}
+
+{% block bar %}
+<nav class="top-bar" data-topbar>
+  <section class="top-bar-section">
+    <ul class="center">
+      <li><a href="/about">ABOUT</a></li>
+      <li class="divider">|</li>
+      <li><a href="/work">WORK</a></li>
+      <li class="divider">|</li>
+      <li class="active"><a href="/media">MEDIA</a></li>
+      <li class="divider">|</li>
+      <li><a href="/events">EVENTS</a></li>
+      <li class="divider">|</li>
+      <li><a href="/contact">CONTACT</a></li>
+    </ul>
+  </section>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+
+<ul class="orbit-slider" data-orbit>
+{% for med in media %}
+  {% if med.media_type == "VI" %}
+    <li data-orbit-slide="headline" id="slider-video">
+      {{ med.media_text|safe }}
+      <div class="orbit-caption">
+        {{ med.media_description }}
+      </div> 
+    </li>
+  {% endif %}
+  {% if med.media_type == "TX" %}
+    <li data-orbit-slide="headline" id="slider-text">
+      <div id="media-text-content">
+        {{ med.media_text|linebreaks }}
+      </div> 
+      <div class="orbit-caption">
+        {{ med.media_description }}
+      </div> 
+    </li>
+  {% endif %}
+  {% if med.media_type == "IM" %}
+    <li id="slider-image">
+      <img src="/static/img/{{ med.media_text }}" alt="My image">
+      <div class="orbit-caption">
+        {{ med.media_description }}
+      </div>
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type='text/javascript' src="/static/js/foundation.js"></script> 
+<script type='text/javascript' src="/static/js/foundation.orbit.js"></script>
+<script>
+  $(document).foundation();
+</script> 
+
+{% endblock %}
