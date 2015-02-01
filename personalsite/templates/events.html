@@ -46,4 +46,17 @@
 
 </div><!--/col-->
 
+<script type="text/javascript" charset="utf-8">
+    $('[id=event-title]').each(function( index ) {
+        var strHTML = $( this ).text();
+        var strMarkdown = mmd(strHTML);
+        $( this ).html(strMarkdown);
+    }); 
+    $('[id=event-description]').each(function( index ) {
+        var strHTML = $( this ).text();
+        var strMarkdown = mmd(strHTML);
+        $( this ).html(strMarkdown);
+    }); 
+</script>
+
 {% endblock %}
