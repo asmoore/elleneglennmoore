@@ -49,7 +49,8 @@ body {
 }
 
 p {
-  margin: 0px;
+  margin-bottom: 10px;
+  line-height: 110%;
 }
 /****** header *********/
 
@@ -102,7 +103,28 @@ section.top-bar-section {
 }
 
 /****** body **********/
-#content > div.row.bottom-row > div.large-4.columns.large-offset-2.column.bio-text > p {
+.bio-image-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  height: 245px;
+}
+
+#bio {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bio-text > p {
+  font-family: "Frutiger LT 57";
+  font-size: 12.5pt;
+  text-align: justify;
+  line-height: 120%;
+} 
+
+.cv {
   font-family: "Frutiger LT 57";
   font-size: 12.5pt;
   text-align: justify;
@@ -120,12 +142,18 @@ input[type="submit"] {
     color: white;
     border: none;
 }
+#blog-title > p {
+  font-family: "Bodoni Bold";
+  font-size: 15pt;
+  font-variant: small-caps;
+  font-weight: bold;
+}
 
 h3 {
     background: white;
     color: black;
     font-family: "Bodoni Bold";
-    font-size: 18pt;
+    font-size: 15pt;
     font-variant:small-caps;     
     font-weight:bold; 
 }
@@ -139,18 +167,21 @@ h3 {
 }
 
 #date-header {
-  display:block; 
-  font-size: 12.5pt;
-  font-weight: bold;
-  margin: 0 auto; 
-  margin-bottom: 30px;
-  text-align: center;
+  font-family: "Frutiger LT 57";
+  font-size: 1rem;
+
 }
 
 #event-title {
   font-size: 12.5pt;
-  font-weight: bold;
   margin: 0 auto; 
+  margin-top: 20px;
+  font-family: "Frutiger LT 57"
+}
+
+#event-description {
+  font-family: "Bodoni Book";
+  color: Gray;
 }
 
 #contact {
@@ -172,5 +203,9 @@ h3 {
     margin-right: auto;
     padding-bottom: 10px;
     padding-top: 20px;
-    text-align: center;
+    padding-right: 20px;
+    text-align: right;
+    font-family: "Frutiger LT 57";
+    font-size: 8pt;
+    color: LightGray;
 }

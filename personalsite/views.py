@@ -20,7 +20,7 @@ def about(request):
                             {"biography": biography},
                              RequestContext(request))
 def work(request):
-    works = Work.objects.all()
+    works = Work.objects.all().order_by('-id')
     return render_to_response('work.html', 
                             {"works":works},
                              RequestContext(request))

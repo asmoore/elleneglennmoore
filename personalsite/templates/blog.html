@@ -32,10 +32,10 @@
   <div class="row">
     
     <div class="large-6 columns"> 
-      <h3>{{ post.title }}</h3>
+      <h3><div id= "blog-title">{{ post.title }}</div></h3>
       <p>{{ post.created }}</p>
       <p>{{ post.description }}</p> 
-      <p>{{ post.content }}</p>
+      <p><div id="blog-content">{{ post.content }}</div></p>
     </div>
 
     <div class="large-6 columns">
@@ -55,5 +55,17 @@
   </div>
   {% endfor %}
 </div>
+<script type="text/javascript" charset="utf-8">
+    $('[id=blog-title]').each(function( index ) {
+        var strHTML = $( this ).text();
+        var strMarkdown = mmd(strHTML);
+        $( this ).html(strMarkdown);
+    }); 
+    $('[id=blog-content]').each(function( index ) {
+        var strHTML = $( this ).text();
+        var strMarkdown = mmd(strHTML);
+        $( this ).html(strMarkdown);
+    }); 
+</script>
 
 {% endblock %}

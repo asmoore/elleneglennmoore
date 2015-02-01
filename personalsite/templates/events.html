@@ -26,24 +26,21 @@
 
 {% block content %}
 
-<div class="large-8 columns large-offset-2 column bio-text">
-  <h3>Upcoming</h3>  
+<div class="large-8 columns large-offset-2 column">
   {% for event, up in events_and_upcoming %}
     {% if up %}
-    <h4 id="date-header">—{{ event.event_date }}—</h4>
     <h2 id="event-title">{{ event.event_title }}</h2>
-    <p>{{ event.event_description|linebreaks }}</p>
-    <br>
+    <div id="date-header">{{ event.event_date }}</div>
+    <div id="event-description">{{ event.event_description|linebreaks }}</div>
     {% endif %}
   {% endfor %}
   
-  <h3>Past</h3>
+  <h3>Past Events</h3>
   {% for event, up in events_and_upcoming %}
     {% if not up %}
-    <h4 id="date-header">—{{ event.event_date }}—</h4>
     <h2 id="event-title">{{ event.event_title }}</h2>
-    <p>{{ event.event_description|linebreaks }}</p>
-    <br>
+    <div id="date-header">{{ event.event_date }}</div>
+    <div id="event-description">{{ event.event_description|linebreaks }}</div>
     {% endif %}
   {% endfor %}
 

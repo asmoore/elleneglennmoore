@@ -50,4 +50,11 @@
   {% endfor %}
 </div>
 
+<script type="text/javascript" charset="utf-8">
+    $('[id=work]').each(function( index ) {
+        var strHTML = $( this ).text();
+        var strMarkdown = mmd(strHTML);
+        $( this ).html(strMarkdown);
+    }); 
+</script>
 {% endblock %}
