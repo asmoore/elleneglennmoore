@@ -34,7 +34,7 @@
     <div id="event-description">{{ event.event_description|linebreaks }}</div>
     {% endif %}
   {% endfor %}
-  
+  <br>
   <h3>Past Events</h3>
   {% for event, up in events_and_upcoming %}
     {% if not up %}
